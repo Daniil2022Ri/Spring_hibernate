@@ -14,7 +14,6 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
 import java.util.Properties;
 
 
@@ -46,7 +45,8 @@ public class AppConfig {
          dataSource.setUrl(url);
          dataSource.setUsername(username);
          dataSource.setPassword(password);
-         return dataSource;
+
+       return dataSource;
    }
 
    @Bean

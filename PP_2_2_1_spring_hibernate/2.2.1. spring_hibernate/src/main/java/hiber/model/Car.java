@@ -16,6 +16,9 @@ public class Car {
     @Column(name = "series")
     private int series;
 
+    @Column(name = "engine_size")
+    private double engineSize;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
@@ -25,9 +28,10 @@ public class Car {
 
     }
 
-    public Car(String model, int series){
+    public Car(String model, int series , double engineSize){
         this.model = model;
         this.series = series;
+        this.engineSize = engineSize;
     }
 
     public Long getId(){
@@ -50,12 +54,30 @@ public class Car {
         this.series = series;
     }
 
+    public double getEnineSize(double engineSize){
+        return engineSize;
+    }
+    public void setEngineSize(double engineSize){
+         this.engineSize = engineSize;
+    }
+
     public User getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public User setUser(User user) {
         this.user = user;
+        return user;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", series=" + series +
+                ", engine_size=" + engineSize +
+                '}';
     }
 
 }
